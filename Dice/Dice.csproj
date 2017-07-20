@@ -6,13 +6,10 @@
 
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="wwwroot\favicon.ico" />
-    <Content Include="wwwroot\lib\dice_128px_1169126_easyicon.net.ico" />
-    <Content Include="wwwroot\lib\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
