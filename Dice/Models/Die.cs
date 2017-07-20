@@ -16,6 +16,11 @@ namespace Dice.Models
 
         public Die(int numFaces)
         {
+            if (numFaces < 2)
+            {
+                throw new ArgumentOutOfRangeException("A Die cannot be created with fewer than 2 faces");
+            }
+
             NumFaces = numFaces;
         }
 
