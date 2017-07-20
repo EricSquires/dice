@@ -1,7 +1,21 @@
-﻿@{
+﻿@model Dice.Models.HomeModel
+
+@{
     ViewData["Title"] = null;
 }
 
-<p>
-    There'll be a dice roll interface here eventually.
-</p>
+<table class="table">
+    <thead>
+        <tr><th># of Faces</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var die in Model.Dice)
+        {
+            <tr class="dice"><td class="die-faces">@die.NumFaces</td><td class="die-value">@die.Value</td></tr>
+        }
+    </tbody>
+</table>
+
+<div class="container">
+    <a onclick="roll()" class="btn btn-default">Roll</a>
+</div>

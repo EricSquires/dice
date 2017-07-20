@@ -21,6 +21,7 @@ namespace DiceTests
             {
                 var roll = die.Roll();
 
+                Assert.AreEqual(roll, die.Value, "Number returned by Roll and die's Value property should match");
                 Assert.IsTrue(roll >= minExpected && roll <= maxExpected, $"Roll was {roll} and should fall between {minExpected} and {maxExpected} (inclusive)");
             }
         }
