@@ -1,4 +1,12 @@
-﻿// Roll the dice
+﻿$(function () {
+    var diceValues = $(".die-value").map(function () {
+        return parseInt(this.innerText);
+    });
+
+    diceDrawer = new DiceDrawer($("#drawArea"), diceValues);
+});
+
+// Roll the dice
 roll = function () {
     var dice = $(".dice");
 
