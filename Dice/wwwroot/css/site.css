@@ -3,6 +3,24 @@
     padding-bottom: 20px;
 }
 
+.swap-container {
+    overflow: hidden;
+    display: block;
+    width: 100px;
+}
+
+.die-value {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: #880000;
+    color: white;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

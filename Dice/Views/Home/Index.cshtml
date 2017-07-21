@@ -11,11 +11,11 @@
     <tbody>
         @foreach (var die in Model.Dice)
         {
-            <tr class="dice"><td class="die-faces">@die.NumFaces</td><td class="die-value">@die.Value</td></tr>
+            <tr class="dice"><td class="die-faces">@die.NumFaces</td><td><div class="swap-container"><div class="die-value swap-item">@die.Value</div></div></td></tr>
         }
     </tbody>
 </table>
 
 <div class="container">
-    <a onclick="roll()" class="btn btn-default">Roll</a>
+    <a onclick="roll()" id="rollBtn" class="btn btn-default">Roll</a>
 </div>
