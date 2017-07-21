@@ -4,18 +4,32 @@
     ViewData["Title"] = null;
 }
 
-<table class="table">
-    <thead>
-        <tr><th># of Faces</th><th>Value</th></tr>
-    </thead>
-    <tbody>
+<div class="text-center">
+    <div id="dice-container" class="row">
         @foreach (var die in Model.Dice)
         {
-            <tr class="dice"><td class="die-faces">@die.NumFaces</td><td><div class="swap-container"><div class="die-value swap-item">@die.Value</div></div></td></tr>
+            <div class="dice">
+                <div class="die-faces" numfaces="@die.NumFaces">@("D" + die.NumFaces)</div>
+                <div class="die-object"><div class="die-value">@die.Value</div></div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
 
-<div class="container">
-    <a onclick="roll()" id="rollBtn" class="btn btn-default">Roll</a>
+    <div class="row">
+        <a onclick="roll()" id="rollBtn" class="btn btn-primary">Roll</a>
+    </div>
+
+    <div class="row">
+        <div class="dropdown">
+            <button type="button" class="btn btn-secondary btn-block dropdown-toggle" data-toggle="dropdown">
+                Choose dice
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="setDice(6,6)">2 D6</a></li>
+                <li><a class="dropdown-item" onclick="setDice(12,12)">2 D12</a></li>
+                <li><a class="dropdown-item" onclick="setDice(20,20)">2 D20</a></li>
+                <li><a class="dropdown-item" onclick="setDice(6,12,20)">D6, D12, D20</a></li>
+            </ul>
+        </div>
+    </div>
 </div>

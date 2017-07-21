@@ -1,26 +1,55 @@
 ﻿// Roll the dice
 roll = function () {
-    $("#rollBtn").addClass("disabled");
+    startRoll();
 
     var dice = $(".die-faces");
     var numComplete = 0;
 
-    dice.each(function (index, die) {
-        var numFaces = parseInt($(die).text());
+    $(".dice").each(function () {
+        var die = $(this);
+        var value = die.find(".die-value");
+        var numFaces = parseInt(die.find(".die-faces").attr("numfaces"));
 
         $.get("/api/Roll/" + numFaces, function (response) {
-            //dice.children(".die-value:eq(" + index + ")").text(response);
-
-            setDieValue($(".die-value").eq(index), response);
+            value.text(response);
             numComplete++;
 
             if (numComplete === dice.length) {
-                $("#rollBtn").removeClass("disabled");
+                endRoll();
             }
         });
     });
 };
 
-setDieValue = function (element, value) {
-    element.text(value);
+startRoll = function () {
+    $("#rollBtn").addClass("disabled");
+    $(".die-value").removeClass("visible");
+    $(".die-value").addClass("hidden");
+};
+
+endRoll = function () {
+    $("#rollBtn").removeClass("disabled");
+    $(".die-value").removeClass("hidden");
+    $(".die-value").addClass("visible");
+};
+
+setDice = function () {
+    var args = Array.from(arguments);
+
+    for (var i = 0; i < 3; i++) {
+        var die = $(".dice").eq(i);
+
+        if (i >= args.length) {
+            die.addClass("hidden");
+        }
+        else {
+            die.removeClass("hidden");
+
+            var faces = die.find(".die-faces");
+            faces.attr("numfaces", args[i]);
+            faces.text("D" + args[i]);
+        }
+    }
+
+    roll();
 };
